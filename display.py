@@ -72,6 +72,10 @@ class Display:
         if not drum_machine.beat % 4 and drum_machine.state == "playing":
             pygame.draw.circle(self.screen, "yellow", (self.SCREEN_WIDTH/2, 40), 4)
 
+    def capture_screenshot(self):
+        print("Screenshot saved")
+        pygame.image.save(self.screen, "screenshot.png")
+
     def loop(self, drum_machine):
         self.screen.fill("black")
         self.screen.blit(self.background, (0, 0))
