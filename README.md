@@ -1,15 +1,17 @@
 # carina-drummer
 A drum loop player in Python.
 
+![Screenshot](screenshot.png)
+
 Keys:
 
 ```
-q - quit
-[ - previous pattern
-] - next pattern
-spacebar - play/pause
-+ - increase tempo
-- - decrease tempo
+Q or Esc - quit
+Left arrow - previous pattern
+Right arrow - next pattern
+Spacebar - play/pause
+Plus - increase tempo
+Minus - decrease tempo
 ```
 
 This will eventually run on CircuitPython in a guitar pedal form factor.
