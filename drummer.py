@@ -48,7 +48,7 @@ class PatternLoader:
             except yaml.YAMLError as exc:
                 print(exc)
 
-    def get_patterns(self, idx):
+    def get_pattern(self, idx):
         return self.patterns["patterns"][idx]
 
 
@@ -57,7 +57,8 @@ class PatternLoader:
 class DrumMachine:
     def __init__(self):
         self.state = "stopped"
-        self.current_pattern = None
+        self.current_pattern_idx = 1
+        self.pattern_length = 0
         self.current_measure = "Measure A"
         self.tempo = 120
         self.beat_timer = None
@@ -66,6 +67,8 @@ class DrumMachine:
         self.interval = 60 / self.tempo / 4 
 
         self.sounds = {}
+        self._pattern_loader = None
+        self._current_pattern = None
 
         for sound in SOUNDS:
             self.sounds[sound] = sa.WaveObject.from_wave_file("samples/" + SOUNDS[sound])
@@ -78,6 +81,20 @@ class DrumMachine:
         self.state = "stopped"
         self._stop_timer()
 
+    def load_patterns(self, patterns_file = PATTERNS_FILE):
+        self.pattern_loader = PatternLoader(patterns_file)
+        self.pattern_loader.load()
+        self.switch_pattern(self.current_pattern_idx)
+
+    def switch_pattern(self, new_pattern_idx):
+        self.current_pattern_idx = new_pattern_idx
+        self._current_pattern = self.pattern_loader.get_pattern(self.current_pattern_idx)
+        self.pattern_length = self._current_pattern["length"]
+        print("Current pattern: [%r] %r (%d measures long)" % (self.current_pattern_idx, self.get_current_pattern_name(), self.pattern_length))
+
+    def get_current_pattern_name(self):
+        return self._current_pattern["name"]
+
     def set_tempo(self, tempo):
         self.tempo = tempo
         self.interval = 60 / self.tempo / 4  # 1/16th of the set tempo (in seconds)
@@ -87,14 +104,14 @@ class DrumMachine:
             if self.state == "playing":
                 # Code to trigger the event every 1/16th of a beat
                 self.beat += 1
-                if self.beat == 16:
+                if self.beat == self.pattern_length:
                     self.beat = 0
 
-                drums = self.current_pattern["measures"][self.current_measure]
+                drums = self._current_pattern["measures"][self.current_measure]
                 for drum in drums:
-                    if drums[drum][self.beat] == "X":
+                    drumIdx = self.beat % len(drums[drum])
+                    if drums[drum][drumIdx] == "X":
                         self.sounds[drum].play()
-
                 threading.Timer(self.interval, timer_callback).start()
 
         self.beat_timer = threading.Timer(self.interval, timer_callback)
@@ -105,24 +122,14 @@ class DrumMachine:
             self.beat_timer.cancel()
 
 
-current_pattern = 0
-pl = PatternLoader()
-pl.load()
-pattern = pl.get_patterns(current_pattern)
-print(pattern["name"])
 
 # process keyboard input to switch patterns with left and right arrow keys
 import sys
 import tty
 import termios
 
-
-# Example usage:
 drum_machine = DrumMachine()
-drum_machine.current_pattern = pattern
-drum_machine.start()
-
-
+drum_machine.load_patterns()
 
 def getch():
     fd = sys.stdin.fileno()
@@ -134,33 +141,36 @@ def getch():
         termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
     return ch
 
-while True:
-    char = getch()
-    if char == b'q':
-        drum_machine.stop()
-        sa.stop_all()
-        break
-    elif char == b' ':
-        if drum_machine.state == "playing":
+def main():
+    current_pattern = 1
+    drum_machine.start()
+
+
+    while True:
+        char = getch()
+        if char == b'q':
             drum_machine.stop()
-        else:
-            drum_machine.start()
-    elif char == b']':
-        current_pattern += 1
-        drum_machine.current_pattern = pl.get_patterns(current_pattern)
-        print("Current pattern: ", drum_machine.current_pattern["name"])
-    elif char == b'[':
-        if current_pattern > 0:
-            current_pattern -= 1
-            drum_machine.current_pattern = pl.get_patterns(current_pattern)
-            print("Current pattern: ", drum_machine.current_pattern["name"])
-    elif char == b'+':
-        drum_machine.set_tempo(drum_machine.tempo + 1)
-        print("Tempo: ", drum_machine.tempo)
-    elif char == b'-':
-        drum_machine.set_tempo(drum_machine.tempo - 1)
-        print("Tempo: ", drum_machine.tempo)
+            sa.stop_all()
+            break
+        elif char == b' ':
+            if drum_machine.state == "playing":
+                drum_machine.stop()
+            else:
+                drum_machine.start()
+        elif char == b']':
+            if drum_machine.current_pattern_idx < len(drum_machine.pattern_loader.patterns["patterns"]):
+                drum_machine.current_pattern_idx += 1
+            drum_machine.switch_pattern(drum_machine.current_pattern_idx)
+        elif char == b'[':
+            if drum_machine.current_pattern_idx > 1:
+                drum_machine.current_pattern_idx -= 1
+                drum_machine.switch_pattern(drum_machine.current_pattern_idx)
+        elif char == b'+':
+            drum_machine.set_tempo(drum_machine.tempo + 1)
+            print("Tempo: ", drum_machine.tempo)
+        elif char == b'-':
+            drum_machine.set_tempo(drum_machine.tempo - 1)
+            print("Tempo: ", drum_machine.tempo)
 
-# This will print "Timer event!" approximately every 1/16th of a beat.
-# To stop the timer, you can call drum_machine.stop().
-
+if __name__ == "__main__":
+    main()
