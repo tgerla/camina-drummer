@@ -21,6 +21,7 @@ class DrumMachine:
         self._pattern_loader = None
         self._current_pattern = None
         self._playing_pattern = None
+        self._prior_measure = "A"
 
         for sound in SOUNDS:
             self._sounds[sound] = sa.WaveObject.from_wave_file("samples/" + SOUNDS[sound])
@@ -49,6 +50,8 @@ class DrumMachine:
 
     def switch_measure(self, new_measure):
         self.measure_changing = True
+        if new_measure == "T":
+            self._prior_measure = self.current_measure
         self.current_measure = new_measure
 
     def get_current_pattern_name(self):
@@ -68,7 +71,11 @@ class DrumMachine:
                     # this is so that if we switch measures while playing, the new measure style will
                     # only kick in at the top of the beat.
                     self._playing_pattern = self._current_pattern["measures"][self.current_measure]
-                    self.measure_changing = False
+                    if self.current_measure == "T":
+                        self.current_measure = self._prior_measure
+                        self.measure_changing = True
+                    else:
+                        self.measure_changing = False
 
                 drums = self._playing_pattern
                 for drum in drums:
