@@ -49,6 +49,8 @@ def main():
                 drum_machine.switch_measure("T")
             if event.type == pygame.KEYDOWN and event.key == pygame.K_c:
                 display.capture_screenshot()
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_TAB:
+                drum_machine.tap_tempo()
     
     pygame.quit()
 

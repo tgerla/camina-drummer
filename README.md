@@ -5,7 +5,13 @@ This will eventually run on CircuitPython on one of these: https://www.adafruit.
 
 ![Screenshot](screenshot.png)
 
-Keys:
+Features:
+
+- YAML patterns
+- Three different measure styles per pattern, A, B, and transition/break
+- Tap tempo
+
+PyGame prototype control:
 
 ```
 Q or Esc - quit
@@ -21,5 +27,4 @@ The samples are from https://github.com/jstrait/beats and patterns are from http
 
 TODO:
 
-- tap tempo
 - swing

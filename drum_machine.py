@@ -3,6 +3,7 @@
 
 import simpleaudio as sa
 import threading
+import time
 
 from pattern_loader import PatternLoader, SOUNDS
 
@@ -16,6 +17,8 @@ class DrumMachine:
         self.tempo = 120
         self.measure_changing = False
 
+
+        self.last_taps = []
 
         self.beat = 0
         self.interval = 60 / self.tempo / 4 
@@ -63,6 +66,18 @@ class DrumMachine:
     def set_tempo(self, tempo):
         self.tempo = tempo
         self.interval = 60 / self.tempo / 4  # 1/16th of the set tempo (in seconds)
+
+    def tap_tempo(self):
+        now = time.time()
+        self.last_taps.append(now)
+        if len(self.last_taps) > 5:
+            self.last_taps.pop(0)
+
+        if len(self.last_taps) >= 2:
+            deltas = [self.last_taps[i] - self.last_taps[i-1] for i in range(1, len(self.last_taps))]
+            new_tempo = 60 / (sum(deltas) / len(deltas))
+            average_tempo = (self.tempo + new_tempo) / 2
+            self.set_tempo(round(average_tempo))
 
     def _start_timer(self):
         def timer_callback():
