@@ -1,0 +1,1229 @@
+# generated from https://github.com/tgerla/drum-machine-patterns
+
+patterns:
+- measures:
+    Break:
+      AC: X           X  X
+      BD: 'X               '
+      CH: 'X               '
+      HT: '   XX  XX  X    '
+      SD: '  X   X   X XXXX'
+    Measure A:
+      AC: '    X       X   '
+      BD: 'X     X X       '
+      CH: 'X   X   X   X   '
+      SD: '    X       X   '
+    Measure B:
+      BD: 'X     X X X   X '
+      CH: 'X   X   X   X   '
+      SD: '    X       X   '
+  name: Rock 1
+  tempo_range: quarter note 112-139
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: 'X X  X  X X X X '
+      CY: '            X X '
+      LT: '        XXXX    '
+      MT: '    XXXX        '
+      SD: 'XXXX            '
+    Measure A:
+      AC: 'X X X X X X X X '
+      BD: X X  X  X      X
+      CH: 'XXXXXXXXXXXXXXX '
+      OH: '               X'
+      SD: '    X       X   '
+    Measure B:
+      BD: X X  X  X      X
+      CH: 'XXXXXXX XXXXXXX '
+      OH: '       X       X'
+      SD: '    X       X X '
+  name: Rock 2
+  tempo_range: quarter note 64-109
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: 'X       X X     '
+      CH: 'X   X   X   X   '
+      OH: '  X   X   X   X '
+      SD: '  X   X     X   '
+    Measure A:
+      BD: 'X         X   X '
+      CH: 'X X X X X X X X '
+      SD: '    X       X   '
+    Measure B:
+      BD: 'X       X X     '
+      CH: 'X X X X X X X X '
+      SD: '    X       X   '
+  name: Rock 3
+  tempo_range: quarter note 142-178
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: X  XX  XX  XX  X
+      BD: 'X   X   X   X   '
+      SD: XXXXXXXXXXXXXXXX
+    Measure A:
+      BD: 'X   X   X   X   '
+      CH: 'X X X X X X X X '
+      SD: '    X       X   '
+    Measure B:
+      AC: '    X       X   '
+      BD: 'X   X   X   X   '
+      CH: 'X X X X X X X X '
+      SD: 'X   X   X   X   '
+  name: Rock 4
+  tempo_range: quarter note 118-190
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '       X  X X   '
+      BD: 'X               '
+      CH: 'X               '
+      SD: '    X  X  X X   '
+    Measure A:
+      BD: 'X       X X     '
+      CH: 'X   X   X   X   '
+      SD: '    X       X   '
+    Measure B:
+      BD: 'X     X X       '
+      CH: 'X   X   X   X   '
+      SD: '    X       X   '
+  name: Rock 5
+  tempo_range: quarter note 150-192
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: X  X        X XX
+      BD: 'X  X  X  X  X   '
+      CH: 'X  X  X  X  X   '
+      SD: ' XX XX XX XX  XX'
+    Measure A:
+      BD: 'X  X      X  X  '
+      CH: 'X X X X X X X X '
+      SD: '    X       X   '
+    Measure B:
+      BD: 'XX     X  X  X  '
+      CH: 'X X X X X X X   '
+      OH: '              X '
+      SD: '    X       X   '
+  name: Funk 1
+  tempo_range: quarter note 80-112
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '             X  '
+      BD: 'X   X X X    X  '
+      CH: 'X   X X X    X  '
+      SD: '   X      XXX   '
+    Measure A:
+      BD: 'X      X X X X  '
+      CH: 'X X XXX      X  '
+      OH: '       X X X    '
+      SD: '    X       X   '
+    Measure B:
+      BD: 'X X  X  X       '
+      CH: X XXX XXX XXX XX
+      SD: '           X    '
+  name: Funk 2
+  tempo_range: quarter note 80-112
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '   X        X X '
+      BD: 'X      X        '
+      CH: 'X      X      X '
+      SD: ' XXXXXX  XXXX X '
+    Measure A:
+      AC: 'X   X   X   X   '
+      BD: 'X      XX       '
+      CH: XXXXXXXXXXXXXXXX
+    Measure B:
+      AC: 'X   X   X   X   '
+      BD: 'X X  X  X       '
+      CH: XXXXXXXXXXXXXXXX
+  name: Funk 3
+  tempo_range: quarter note 100-130
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: '             X  '
+      HT: '    XXXX        '
+      SD: 'XXXX    XXXXXX  '
+    Measure A:
+      BD: 'X X    X  X     '
+      CH: 'X X XXXX  X XXX '
+      SD: '    X       X   '
+    Measure B:
+      BD: 'X X     X       '
+      CH: 'X X XXX X X X X '
+      SD: '    X      X    '
+  name: Funk 4
+  tempo_range: quarter note 78-112
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: 'X X  X          '
+      CH: 'X X  X          '
+      HT: '        XXXX    '
+      SD: '    X       XXXX'
+    Measure A:
+      AC: '     X      X   '
+      BD: 'X X     X       '
+      CH: 'X X X X X X X X '
+      SD: '    XX     XX   '
+    Measure B:
+      BD: '  X  X  X  X    '
+      CH: X X XXX X XXX XX
+      SD: '    X  X    X   '
+  name: Funk 5
+  tempo_range: quarter note 78-112
+  time_signature: 4/4
+- measures:
+    Break:
+      LT: '          XX    '
+      MT: '      XXX       '
+      SD: '    X        XX '
+    Measure A:
+      AC: '    XX      XX  '
+      BD: 'X  X  X X  X  X '
+      CH: 'XX X  X XX X  X '
+      SD: '  X XX X  X XX X'
+    Measure B:
+      AC: '    XX      XX  '
+      BD: 'X  X  X X  X  X '
+      CH: 'XX X  X XX X  X '
+      HT: '  X       X     '
+      LT: '       X       X'
+      SD: '    XX      XX  '
+  name: Funk 6
+  tempo_range: quarter note 86-116
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '      X        X'
+      BD: ' X  X X         '
+      CH: '    X X         '
+      SD: X  X     X XXXXX
+    Measure A:
+      BD: X  X   X       X
+      CH: 'XXX  XX XXX  XX '
+      OH: '   X   X   X   X'
+      SD: '    X       X   '
+    Measure B:
+      BD: 'XX     X  X  X  '
+      CH: 'XXX  XX XXX  XX '
+      MT: '            X   '
+      OH: '   X   X   X   X'
+      SD: '    X           '
+  name: Funk 7
+  tempo_range: quarter note 82-94
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '     X   X  X X '
+      BD: '           XX X '
+      CH: '            X X '
+      MT: '     X   X      '
+      SD: 'X X X  XX       '
+    Measure A:
+      BD: 'X  X    X XX    '
+      OH: 'X   X   X   X   '
+      SD: '      X       X '
+    Measure B:
+      BD: 'X  X    X XX    '
+      OH: 'X   X   X   X   '
+      SD: '      X       XX'
+  name: Funk 8
+  tempo_range: quarter note 96-134
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '    X       X   '
+      BD: 'X  X X   X X    '
+      CH: '            X   '
+      SD: ' XX X  X    X   '
+    Measure A:
+      BD: X       X X    X
+      CH: '    XXX XXX XXXX'
+      OH: '  X             '
+      SD: '    X       X   '
+    Measure B:
+      BD: 'X XX X X X X X  '
+      CH: 'X XXX        X  '
+      OH: '     X X X X    '
+      SD: '    X       X   '
+  name: Funk 9
+  tempo_range: quarter note 94-118
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: ' X   X    X     '
+      BD: '     X    X     '
+      CH: '     X    X     '
+      SD: XX XX  XX   XXXX
+    Measure A:
+      BD: 'X X    X        '
+      CH: XXXX XXXXXXX XXX
+      SD: '    X       X   '
+    Measure B:
+      BD: '  X  X  X       '
+      CH: XXXX XXXXXXX XXX
+      SD: '    X       X   '
+  name: Funk 10
+  tempo_range: quarter note 94-118
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '   X   X   X   X'
+      HT: '     XX    X    '
+      LT: 'X      X    X   '
+      SD: '  XXX   XXX   XX'
+    Measure A:
+      AC: '            X   '
+      BD: 'X  X  X X  X    '
+      CH: 'X XXX X X X X X '
+      SD: '    X       X   '
+    Measure B:
+      AC: '            X   '
+      BD: 'XX    X X  X    '
+      CH: 'X XXX X X X X X '
+      SD: '    X       X   '
+  name: Funk 11
+  tempo_range: quarter note 82-124
+  time_signature: 4/4
+- measures:
+    Break:
+      LT: '            XXXX'
+      MT: '        XXXX    '
+      OH: 'X X             '
+      SD: ' X XXXXX        '
+    Measure A:
+      BD: X  X   X X X   X
+      CH: 'XXX  XX X X  XX '
+      OH: '   X   X X X   X'
+      SD: '    X       X   '
+    Measure B:
+      BD: 'X  X   X   X    '
+      CH: 'XXX  XX XXX  XX '
+      OH: '   X   X   X   X'
+      SD: '    X       X   '
+  name: Funk 12
+  tempo_range: quarter note 82-96
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: 'X               '
+      MT: '     XX      X X'
+      SD: '   XX    X XX   '
+    Measure A:
+      BD: 'X  X  X    X    '
+      CH: 'XXX XX  XXX XX  '
+      OH: '      X       X '
+      SD: '            X X '
+    Measure B:
+      BD: 'X  X  X    X    '
+      CH: 'XXX XX  XXX XX  '
+      OH: '      X       X '
+      SD: '            X XX'
+  name: Funk 13
+  tempo_range: quarter note 98-118
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '             X  '
+      BD: '     X       X  '
+      CH: '             X  '
+      SD: 'X  XX   X X XX  '
+    Measure A:
+      BD: 'XX    XX  X  X  '
+      CH: 'X X X X X X X X '
+      SD: '    X       X   '
+    Measure B:
+      BD: 'X  X    XX      '
+      CH: 'X X X X X X X X '
+      SD: '    X       X   '
+  name: Funk 14
+  tempo_range: quarter note 78-112
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '          X '
+      BD: 'X         X '
+      CH: 'X         X '
+      SD: '  X X X XX  '
+    Measure A:
+      BD: 'X     X     '
+      CH: 'X X X X X X '
+      SD: '        X   '
+    Measure B:
+      BD: 'X     X     '
+      CH: 'X X X X X X '
+      SD: '        X  X'
+  name: Funk 15
+  tempo_range: quarter note 105-132
+  time_signature: 4/4
+- measures:
+    Break:
+      LT: '    X     X     '
+      MT: '  X     X       '
+      SD: XX X XXX X XXXXX
+    Measure A:
+      BD: 'X X   X   X     '
+      CH: 'X X X X X X X X '
+      SD: '    X       X  X'
+    Measure B:
+      BD: 'X X     X XX    '
+      CH: 'X X X X X X X X '
+      SD: '    X  X X  X  X'
+  name: Rhythm & Blues 1
+  tempo_range: quarter note 90-112
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: '  XX  XX  XX    '
+      LT: '        XX      '
+      MT: '    XX          '
+      SD: XX          XXXX
+    Measure A:
+      BD: 'X X  X X  XX X  '
+      CH: 'X X X X X X X X '
+      SD: '    X       X   '
+    Measure B:
+      BD: '   X XX  X X XX '
+      CH: 'X X X X X X X X '
+      SD: 'X   X   X   X   '
+  name: Rhythm & Blues 2
+  tempo_range: quarter note 86-108
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: X  X   X       X
+      CH: 'X  XX  X        '
+      HT: '            XX  '
+      LT: '     X          '
+      SD: '  X     X XX  X '
+    Measure A:
+      BD: 'X  X   X X X X  '
+      CH: 'X X X X X X X X '
+      SD: '    X       X   '
+    Measure B:
+      BD: 'X XX    X  X    '
+      CH: X XXX XXX XXX XX
+      SD: '    X XX    X   '
+  name: Rhythm & Blues 3
+  tempo_range: quarter note 90-112
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: 'X  X     X      '
+      CH: '   X      X     '
+      MT: '      XXX   X XX'
+      SD: ' XX X     X     '
+    Measure A:
+      BD: 'X X     X XX    '
+      CH: XXXXXXXXXXXXXXXX
+      SD: '    X  X X  X  X'
+    Measure B:
+      BD: 'X       X       '
+      CH: XX XXX XXX XXX X
+      OH: '  X   X   X   X '
+      SD: '    X       X  X'
+  name: Rhythm & Blues 4
+  tempo_range: quarter note 78-90
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: 'X  X   X   X    '
+      CH: '            X   '
+      LT: '        XXX     '
+      MT: '    XXX         '
+      SD: ' XX         X   '
+    Measure A:
+      BD: X   XX XX X XX X
+      CH: 'X X X X X X X X '
+      SD: '  X   X    X  X '
+    Measure B:
+      BD: 'X XX   XX XX X  '
+      CH: 'X X X X X X X X '
+      SD: '    X       X   '
+  name: Rhythm & Blues 5
+  tempo_range: quarter note 82-108
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '               X'
+      BD: 'X               '
+      CH: 'X X             '
+      LT: '            XXXX'
+      MT: '        XXX     '
+      SD: '    X XX        '
+    Measure A:
+      BD: 'X     X X       '
+      CH: 'X X X X X X X X '
+      SD: '    X       X   '
+    Measure B:
+      BD: 'X      XX       '
+      CH: 'X X X X X X X X '
+      SD: '    X       X   '
+  name: Ballad 1
+  tempo_range: quarter note 64-84
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '    X       X   '
+      BD: 'X       X       '
+      CH: 'X               '
+      LT: '            XXXX'
+      MT: '        X X     '
+      SD: '  XXX X         '
+    Measure A:
+      BD: 'X      XX X     '
+      CH: 'X X X X X X XX  '
+      OH: '              X '
+      SD: '    X       X   '
+    Measure B:
+      BD: 'XX     XX X  X  '
+      CH: 'X X X X X X X X '
+      SD: '    X       X   '
+  name: Ballad 2
+  tempo_range: quarter note 64-84
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: 'X   XX  XX  XX  '
+      HT: '      XX        '
+      LT: '          XX    '
+      SD: '  XX          XX'
+    Measure A:
+      BD: 'X     X         '
+      CH: 'X   X   X   X   '
+      OH: '  X   X   X  X  '
+      SD: '        X     XX'
+    Measure B:
+      BD: 'XX    XX        '
+      CH: 'X X X X X X X X '
+      SD: '    X       X   '
+  name: Ballad 3
+  tempo_range: quarter note 64-84
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '     X       X  '
+      BD: 'X    X  X       '
+      CH: '     X  X       '
+      LT: '                '
+      MT: ' XX       X XX  '
+      SD: '   XX           '
+    Measure A:
+      AC: 'X   X   X   X   '
+      BD: 'X       X X   X '
+      CH: 'X X X X X X X X '
+      SD: '    X       X   '
+    Measure B:
+      AC: 'X   X   X   X   '
+      BD: 'X     X X     X '
+      CH: 'X X X X X X X X '
+      SD: '    X       X   '
+  name: Ballad 4
+  tempo_range: quarter note 60-80
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: 'X               '
+      CH: 'XXXXXXX         '
+      HT: '            XX  '
+      LT: '              XX'
+      MT: '          XX    '
+      OH: '       X        '
+      SD: '    X   XX      '
+    Measure A:
+      BD: X         X    X
+      CH: 'XXXXXXX XXXXXXX '
+      OH: '       X       X'
+      SD: '    X       X   '
+    Measure B:
+      BD: 'XX     X  X  X  '
+      CH: XXXXXXXXXXXXXXXX
+      SD: '    X       X   '
+  name: Ballad 5
+  tempo_range: quarter note 60-80
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '            X   '
+      BD: 'X               '
+      CH: 'X               '
+      LT: '  X X X X       '
+      SD: '  X X X X XXX   '
+    Measure A:
+      AC: '    X       X   '
+      BD: 'X       X     X '
+      CH: 'X X X X X X X X '
+      SD: '    X X     X   '
+    Measure B:
+      AC: '    X           '
+      BD: 'X     X X     X '
+      CH: 'X X X X X X X X '
+      SD: '    X     X     '
+  name: Pop 1
+  tempo_range: quarter note 106-170
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '   X     X      '
+      BD: 'X   X X   X     '
+      MT: '        XX      '
+      SD: '  XX        XXXX'
+    Measure A:
+      BD: 'X     X   X  X  '
+      CH: 'X   X   X   X   '
+      SD: '   X    X   X   '
+    Measure B:
+      AC: '             X  '
+      BD: 'X     X     X   '
+      CH: 'X   X   X   X   '
+      SD: '   X      X  X  '
+  name: Pop 2
+  tempo_range: quarter note 97-121
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '           X    '
+      BD: '            X   '
+      CH: '            X   '
+      LT: '                '
+      MT: '   X            '
+      SD: 'X         XX    '
+    Measure A:
+      BD: '    X XX X  X   '
+      CH: 'X   X   X   X   '
+      SD: 'X  X    X  X    '
+    Measure B:
+      BD: 'X XX X  X XX X  '
+      CH: 'X   X   X   X   '
+      SD: '    X       X   '
+  name: Pop 3
+  tempo_range: quarter note 94-115
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: X           X  X
+      BD: 'X         X     '
+      CH: 'X               '
+      SD: '    X X X   X XX'
+    Measure A:
+      BD: 'X       X X     '
+      CH: 'X   X   X   X   '
+      SD: '    X  X    X   '
+    Measure B:
+      BD: 'X X     X XX    '
+      CH: 'X   X   X   X   '
+      SD: '    X  X    X   '
+  name: Pop 4
+  tempo_range: quarter note 97-142
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: 'X   X   X   X   '
+      OH: 'X   X   X   X   '
+      SD: ' XXXX XXXXX XXXX'
+    Measure A:
+      BD: 'X     X   X  X  '
+      CH: 'X   X   X   X   '
+      SD: '   XX       X   '
+    Measure B:
+      AC: '             X  '
+      BD: 'X     X      X  '
+      CH: 'X   X   X   XX  '
+      SD: '   X      X X   '
+  name: Pop 5
+  tempo_range: quarter note 100-124
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '              X '
+      BD: '              X '
+      CH: '              X '
+      MT: '        X X     '
+      SD: '  X X X     XX  '
+    Measure A:
+      BD: '    X       X   '
+      CH: XXXXXXXXXXXXXXXX
+      RS: '    X  X X  X  X'
+    Measure B:
+      BD: '    X       X   '
+      CH: XXXXXXXXXXXXXXXX
+      RS: '  XX  X   XX  X '
+  name: Reggae 1
+  tempo_range: quarter note 78-94
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '    X   X   X   '
+      BD: '              X '
+      CH: '              X '
+      LT: '          XXX   '
+      MT: '      XXX       '
+      SD: '  XXX           '
+    Measure A:
+      BD: '    X       X   '
+      CH: '  XX  XX  XX    '
+      OH: '              X '
+      RS: '        X       '
+    Measure B:
+      BD: '    X       X   '
+      CH: '  XX  XX  XX    '
+      OH: '              X '
+      RS: '    X       X   '
+  name: Reggae 2
+  tempo_range: quarter note 116-130
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '              X '
+      BD: '              X '
+      LT: '          X X   '
+      MT: '      X         '
+      OH: '              X '
+      SD: 'X X             '
+    Measure A:
+      BD: 'X  X    X   X   '
+      CH: 'X XXXXX   X   X '
+      SD: '        X       '
+    Measure B:
+      BD: 'X   X   X   X   '
+      CH: 'X XX XX   X   X '
+      SD: '        X       '
+  name: Reggae 3
+  tempo_range: quarter note 110-142
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: '   X     X  '
+      CH: '   X     X  '
+      MT: '      XXX   '
+      SD: 'XXX         '
+    Measure A:
+      BD: '      X  X  '
+      CH: 'X X   X X   '
+      OH: '   X     X  '
+      RS: 'X     X     '
+    Measure B:
+      BD: '  X   X     '
+      CH: 'X X   X X   '
+      OH: '   X     X  '
+      RS: 'X     X     '
+  name: Reggae 4
+  tempo_range: quarter note 110-160
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '              X '
+      BD: '              X '
+      CH: '              X '
+      LT: '         X X    '
+      MT: '   X XX         '
+      SD: 'X           X   '
+    Measure A:
+      BD: 'X   X   X   X   '
+      CH: X XXX XXX XXX XX
+      RS: '  X   X   X   XX'
+    Measure B:
+      BD: 'X   X   X   X   '
+      CH: 'XX  XX  XX  XX  '
+      OH: '  XX  XX  XX  XX'
+      RS: '    X       X  X'
+  name: Reggae 5
+  tempo_range: quarter note 82-94
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '    X   X   X   '
+      BD: 'X   X   X   X   '
+      CH: 'XX X            '
+      LT: '        X       '
+      MT: '      X         '
+      OH: '  X             '
+      SD: '    XX X XXXXX  '
+    Measure A:
+      AC: 'X   X   X   X   '
+      BD: 'X   X   X   X   '
+      CH: XXXXXXXXXXXXXXXX
+      SD: '    X       X   '
+    Measure B:
+      BD: 'X   X   X   X   '
+      CH: XX XXX XX XXXX X
+      OH: '  X   X  X    X '
+      SD: '    X      XX   '
+  name: Disco 1
+  tempo_range: quarter note 100-120
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: 'X   X   X   X   '
+      CH: 'XXX             '
+      SD: '   XX X X X XXX '
+    Measure A:
+      BD: 'X   X   X   X   '
+      CB: 'X   X   X   X   '
+      CH: '  X   X   X   X '
+      SD: '    X       X   '
+    Measure B:
+      BD: 'X   X   X   X   '
+      CB: 'X   X   X   X   '
+      CH: X XX  XX  XX  XX
+      SD: '    X       X   '
+  name: Disco 2
+  tempo_range: quarter note 100-136
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: 'X   X   X   X   '
+      CB: '            X XX'
+      CH: 'XXXX            '
+      MT: '        X  X    '
+      SD: '    X XX XX     '
+    Measure A:
+      BD: 'X   X   X   X   '
+      CH: '  XX  XX  XX  XX'
+      SD: '    X       X   '
+    Measure B:
+      BD: 'X   X   X   X   '
+      CH: X XXX XXX XXX XX
+      SD: '    X       X   '
+  name: Disco 3
+  tempo_range: quarter note 110-136
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: 'X   X   X   X   '
+      CH: 'XX   X   X   X  '
+      OH: '  X   X   X   X '
+      SD: '   XX  XX  XX  X'
+    Measure A:
+      BD: 'X   X   X   X   '
+      CH: 'XXX  XX XXX  XX '
+      OH: '   X   X   X   X'
+      SD: '    X       X   '
+    Measure B:
+      BD: 'X   X   X  XX   '
+      CH: 'XXX  XX XXX  XX '
+      OH: '   X   X       X'
+      SD: '    X      XX   '
+  name: Disco 4
+  tempo_range: quarter note 98-124
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: 'X   X   X   X   '
+      CH: 'XX              '
+      LT: '            XXXX'
+      MT: '        XXXX    '
+      OH: '  XX            '
+      SD: '    XXXX        '
+    Measure A:
+      BD: 'X   X   X   X   '
+      CH: XX   X XXX   X X
+      OH: '  XX  X   XX  X '
+      SD: '    X       X   '
+    Measure B:
+      BD: 'X   X   X   X   '
+      CH: 'XXX  XXXXXXX XX '
+      OH: '   X           X'
+      SD: '    X       X   '
+  name: Disco 5
+  tempo_range: quarter note 98-130
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '    X       X  X'
+      BD: 'X               '
+      CH: 'X               '
+      LT: '            XXXX'
+      MT: '      XXXXX     '
+      SD: ' XXXX           '
+    Measure A:
+      BD: 'X       X       '
+      CH: 'X XXX X X X X X '
+      RS: '      X   X   X '
+    Measure B:
+      BD: 'X       X X   X '
+      CH: 'X XXX X X X X X '
+      RS: '      X     X   '
+  name: Afro-Cuban 1
+  tempo_range: quarter note 69-92
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '            XX  '
+      BD: '             X  '
+      CH: '             X  '
+      LT: '      X X X     '
+      MT: '    X           '
+      SD: 'XX          X   '
+    Measure A:
+      BD: 'X       X       '
+      CH: 'X XXX X X X X X '
+      LT: '            X X '
+      MT: '          X     '
+      RS: '   X  X         '
+    Measure B:
+      BD: 'X       X     X '
+      CH: 'X XXX X X X X X '
+      MT: '          X X   '
+      RS: '      X         '
+  name: Afro-Cuban 2
+  tempo_range: quarter note 105-135
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: 'X   X   X   X   '
+      BD: 'X   X X   X X   '
+      CH: 'X   X X   X X   '
+      MT: '  XX    XX    XX'
+      SD: ' X   X X   X X  '
+    Measure A:
+      BD: 'X       X     X '
+      CH: 'X XXX X X X X X '
+      LT: '              X '
+      MT: '      X   X     '
+      RS: '   X            '
+    Measure B:
+      BD: 'X       X       '
+      CH: 'X XXX X X X X X '
+      LT: '            X X '
+      MT: '      X   X     '
+      SD: '   X            '
+  name: Afro-Cuban 3
+  tempo_range: quarter note 88-126
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '            X   '
+      CH: '            X   '
+      HT: '    X X         '
+      LT: '        X X     '
+      SD: 'X  X        X   '
+    Measure A:
+      BD: 'X       X X   X '
+      CH: 'X XXX X X X X X '
+      RS: '      X     X   '
+    Measure B:
+      BD: 'X       X       '
+      CH: 'X XXX X X X X X '
+      LT: '              X '
+      MT: '          X     '
+      RS: '      X         '
+  name: Afro-Cuban 4
+  tempo_range: quarter note 66-98
+  time_signature: 4/4
+- measures:
+    Break:
+      LT: '              X '
+      MT: '          X     '
+      SD: 'X X   X         '
+    Measure A:
+      BD: 'X       X       '
+      CH: 'X XXX X X X X X '
+      HT: '          X     '
+      LT: '              X '
+      RS: '      X         '
+    Measure B:
+      BD: 'X     X X     X '
+      CH: 'X XXX X X X X X '
+      RS: '    X     X     '
+  name: Afro-Cuban 5
+  tempo_range: quarter note 72-98
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: 'XXXXXXXXX   '
+      CH: 'XXXXXXXXX   '
+      SD: XXXXXXXXXXXX
+    Measure A:
+      BD: X X  XX X XX
+      CH: XXXXXXXXXXXX
+      SD: '   X     X  '
+    Measure B:
+      BD: 'X X  XX X X '
+      CH: XXXXXXXXXXXX
+      SD: '   X     X  '
+  name: Blues 1
+- measures:
+    Break:
+      BD: 'X  X  X  X  '
+      CH: 'X  X  X  X  '
+      SD: ' XX XX XX XX'
+    Measure A:
+      BD: 'X X X X X X '
+      CH: X XX XX XX X
+      SD: '   X     X  '
+    Measure B:
+      BD: X X  XX X  X
+      CH: XXXXXXXXXXXX
+      SD: '   X     X  '
+  name: Blues 2
+- measures:
+    Break:
+      BD: 'X  X        '
+      CH: 'X  X        '
+      SD: '      XXXXXX'
+    Measure A:
+      BD: 'X  X  X  X  '
+      CH: 'X  X  X  X  '
+    Measure B:
+      BD: 'X  X  X  X  '
+      CH: 'X  X  X  X  '
+      SD: '   X     X  '
+  name: Swing 1
+- measures:
+    Break:
+      BD: 'XXX XXX X   '
+      CH: '          X '
+      SD: '   X   X XX '
+    Measure A:
+      BD: 'X  X  X  X  '
+      CH: X  X XX  X X
+      SD: '   X     X  '
+    Measure B:
+      BD: 'X  X XX  X  '
+      CH: X  X XX  X X
+      SD: '   X     X  '
+  name: Swing 2
+- measures:
+    Break:
+      BD: 'X  X  X  X  '
+      MT: '    XX    XX'
+      OH: 'X  X  X  X  '
+      SD: ' XX    XX   '
+    Measure A:
+      BD: X    XX X  X
+      CY: X  X  X  X X
+      SD: '   X     X  '
+    Measure B:
+      BD: X X  XX X  X
+      CY: 'X  X  X  X  '
+      SD: '   X     X  '
+  name: Swing 3
+- measures:
+    Break:
+      BD: X   XX XX XX
+      CH: 'X           '
+      SD: '   X  X  X  '
+    Measure A:
+      BD: 'X    XX     '
+      CH: X XX XX XX X
+      SD: '   X     X  '
+    Measure B:
+      BD: 'X    XX X   '
+      CH: X XX XX XX X
+      SD: '   X     X  '
+  name: Shuffle 1
+- measures:
+    Break:
+      BD: X  X    X  X
+      CH: 'X  X        '
+      SD: ' XX XXXX XX '
+    Measure A:
+      BD: 'X X   X X   '
+      CH: X XX XX XX X
+      SD: '   X     X  '
+    Measure B:
+      BD: 'X X   X X   '
+      CH: X XX XX XX X
+      SD: '   X X   X  '
+  name: Shuffle 2
+- measures:
+    Break:
+      AC: '              X '
+      CH: '              X '
+      LT: '          XXX   '
+      MT: '      XXX       '
+      SD: 'X XXX         X '
+    Measure A:
+      BD: X  XX  XX  XX  X
+      CB: 'X   X   X   X   '
+      CH: ' XX  XX  XX  XX '
+      LT: '       X       X'
+      MT: '   X            '
+      SD: '           X    '
+    Measure B:
+      BD: X  XX  XX  XX  X
+      CB: X X XX X XX XX X
+      CH: ' X X  X X     X '
+      MT: '           X    '
+  name: Samba 1
+  tempo_range: quarter note 80-130
+  time_signature: 4/4
+- measures:
+    Break:
+      LT: '    X     X     '
+      MT: X  X  X  X  X  X
+      SD: ' XX    XX    XX '
+    Measure A:
+      BD: X  XX  XX  XX  X
+      CH: X XXX XXX XXX XX
+      LT: '              XX'
+      RS: '  X  X  X       '
+      SD: '           X    '
+    Measure B:
+      BD: X  XX  XX  XX  X
+      CH: X XXX XXX XXX XX
+      LT: '               X'
+      MT: '       X        '
+      RS: ' X   X   X   X  '
+      SD: '   X       X    '
+  name: Samba 2
+  tempo_range: quarter note 88-110
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: X  XX  XX  XX  X
+      CH: 'XX    XX  X X   '
+      HT: '  X X           '
+      LT: '           X  X '
+      MT: '        X       '
+      OH: '               X'
+      SD: '  X X   X  X  X '
+    Measure A:
+      AC: 'X   X   X   X   '
+      BD: X  XX  XX  XX  X
+      CH: XXXXXXXXXXXXXXXX
+      SD: '    X       X   '
+    Measure B:
+      AC: '       X   X    '
+      BD: X  XX  XX  XX  X
+      CH: ' X X  X X  X  X '
+      SD: X X XX X XX XX X
+  name: Samba 3
+  tempo_range: quarter note 80-130
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: '  X X         X '
+      CH: '  X             '
+      CY: '    X           '
+      LT: '            X   '
+      MT: '        X X     '
+      RS: 'X               '
+    Measure A:
+      BD: 'X     X X     X '
+      CH: 'X X X X X X X X '
+      RS: 'X     X     X   '
+    Measure B:
+      BD: 'X     X X     X '
+      CH: 'X X X X X X X X '
+      RS: '    X     X     '
+  name: Bossa Nova 1
+  tempo_range: quarter note 100-190
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '            X   '
+      LT: '          X X   '
+      MT: '  X   X         '
+    Measure A:
+      BD: 'X     X X     X '
+      CH: '    X       X   '
+      CY: 'X X X X X X X X '
+      RS: '  X  X  X  X    '
+    Measure B:
+      BD: 'X     X X     X '
+      CH: '    X       X   '
+      CY: 'X X X X X X X X '
+      RS: '  XX  XX  XX  XX'
+  name: Bossa Nova 2
+  tempo_range: quarter note 100-160
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '            X   '
+      CH: '            X   '
+      HT: '  X     X       '
+      LT: '    X X         '
+      SD: '            X   '
+    Measure A:
+      BD: 'X     X X     X '
+      CB: 'X   X   X   X   '
+      CH: '    X       X   '
+      HT: '  X   X         '
+      LT: '            X X '
+    Measure B:
+      BD: 'X     X X     X '
+      CB: 'X   X   X   X   '
+      CH: '    X       X   '
+      HT: '  XX      XX    '
+      LT: '      XX      X '
+  name: Cha-Cha
+  tempo_range: quarter note 120-140
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: 'X X     X X     '
+      CH: 'X   X   X   X   '
+      MT: '    X X         '
+      SD: '            XXXX'
+    Measure A:
+      AC: '      X     X   '
+      BD: 'X       X       '
+      CH: 'X X X X X X X X '
+      SD: '    X X     X   '
+    Measure B:
+      BD: 'X     X X     X '
+      CH: 'X XXX X X X X X '
+      SD: '    X X     X   '
+  name: Twist 1
+  tempo_range: quarter note 142-166
+  time_signature: 4/4
+- measures:
+    Break:
+      BD: 'X       X       '
+      MT: '        X X     '
+      SD: '    X X     XXXX'
+    Measure A:
+      AC: '      X     X   '
+      BD: 'X       X       '
+      CH: 'X   X X X   X   '
+      SD: '    X X     X   '
+    Measure B:
+      AC: '      X     X   '
+      BD: 'X       X X     '
+      CH: 'X XXX X X X X X '
+      SD: '    X X     X   '
+  name: Twist 2
+  tempo_range: quarter note 136-170
+  time_signature: 4/4
+- measures:
+    Break:
+      AC: '            X   '
+      CH: '            X   '
+      MT: '    X X         '
+      SD: 'X XX    X X X   '
+    Measure A:
+      AC: '  X   X   X   X '
+      BD: 'X       X       '
+      CH: 'X X X X X X X X '
+      SD: '    X       X   '
+    Measure B:
+      AC: '  X   X   X     '
+      BD: 'X   X   X   X   '
+      CH: 'X X X X X X X   '
+      OH: '              X '
+      SD: '    X       X   '
+  name: Ska
+  tempo_range: quarter note 174
+  time_signature: 4/4
+- measures:
+    Measure A:
+      AC: 'X               '
+      BD: 'X               '
+      CY: 'X               '
+    Measure B:
+      AC: 'X               '
+      BD: 'X               '
+      CH: 'X               '
+  name: Endings
+  tempo_range: quarter note
+  time_signature: 4/4
+
