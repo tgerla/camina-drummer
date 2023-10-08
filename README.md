@@ -21,6 +21,5 @@ The samples are from https://github.com/jstrait/beats and patterns are from http
 
 TODO:
 
-- deal with A/B patterns
-- a button to queue up a break
+- tap tempo
 - swing

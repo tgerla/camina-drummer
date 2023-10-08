@@ -62,7 +62,7 @@ class Display:
 
             pygame.draw.rect(self.screen, "black", pygame.Rect((8 + i * (bar_width+bar_spacing)), bar_y_position, bar_width, bar_height), border_radius=0)
             if i == drum_machine.beat:
-                pygame.draw.rect(self.screen, "white", pygame.Rect((8 + i * (bar_width+bar_spacing)), bar_y_position, bar_width, bar_height), border_radius=0)
+                pygame.draw.rect(self.screen, "cyan", pygame.Rect((8 + i * (bar_width+bar_spacing)), bar_y_position, bar_width, bar_height), border_radius=0)
             
         # draw the time signature display
         text = self.pattern_font.render("%s" % drum_machine.pattern_signature, True, "white")
@@ -70,7 +70,7 @@ class Display:
         self.screen.blit(text, text_rect)
 
         if not drum_machine.beat % 4 and drum_machine.state == "playing":
-            pygame.draw.circle(self.screen, "green", (self.SCREEN_WIDTH/2, 40), 4)
+            pygame.draw.circle(self.screen, "yellow", (self.SCREEN_WIDTH/2, 40), 4)
 
     def loop(self, drum_machine):
         self.screen.fill("black")
