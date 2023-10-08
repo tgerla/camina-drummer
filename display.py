@@ -12,6 +12,8 @@ class Display:
         self.pattern_font = pygame.font.Font(None, 22)
         self.tempo_font = pygame.font.Font(None, 28)
         self.tempo_font.bold = True
+        self.measure_font = pygame.font.Font(None, 18)
+        self.measure_font.bold = True
         self.running = True
 
         self.background = pygame.image.load(self.BACKGROUND_BITMAP)
@@ -31,6 +33,22 @@ class Display:
         text = self.tempo_font.render("%r" % drum_machine.current_pattern_idx, True, "black")
         text_rect = text.get_rect(center=(48/2+10, 44))
         self.screen.blit(text, text_rect)
+
+    def _draw_measures(self, drum_machine):
+
+        for i, m in enumerate(["A", "B", "T"]):
+            if m == drum_machine.current_measure:
+                color = "white"
+                if drum_machine.measure_changing and drum_machine.beat % 2:
+                    color = "darkgray"
+            else:
+                color = "darkgray"
+
+
+            text = self.measure_font.render("%s" % m, True, color)
+            text_rect = text.get_rect(topleft=(i*14+16, 63))
+            self.screen.blit(text, text_rect)
+
 
     def _draw_beats(self, drum_machine):
         for i in range(0, drum_machine.pattern_length):
@@ -58,6 +76,7 @@ class Display:
         self._draw_tempo_display(drum_machine)
         self._draw_pattern_display(drum_machine)
         self._draw_beats(drum_machine)
+        self._draw_measures(drum_machine)
 
         pygame.display.flip()
         self.clock.tick(60)

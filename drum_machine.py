@@ -9,8 +9,10 @@ class DrumMachine:
         self.state = "stopped"
         self.current_pattern_idx = 1
         self.pattern_length = 0
-        self.current_measure = "Measure A"
+        self.current_measure = "A"
         self.tempo = 120
+        self.measure_changing = False
+
 
         self.beat = 0
         self.interval = 60 / self.tempo / 4 
@@ -18,6 +20,7 @@ class DrumMachine:
         self._beat_timer = None
         self._pattern_loader = None
         self._current_pattern = None
+        self._playing_pattern = None
 
         for sound in SOUNDS:
             self._sounds[sound] = sa.WaveObject.from_wave_file("samples/" + SOUNDS[sound])
@@ -38,9 +41,15 @@ class DrumMachine:
     def switch_pattern(self, new_pattern_idx):
         self.current_pattern_idx = new_pattern_idx
         self._current_pattern = self.pattern_loader.get_pattern(self.current_pattern_idx)
+        self.current_measure = "A"
+        self._playing_pattern = self._current_pattern["measures"][self.current_measure]
         self.pattern_length = self._current_pattern["length"]
         self.pattern_signature = self._current_pattern.get("time_signature", "n/a")
         print("Current pattern: [%r] %r (%d measures long)" % (self.current_pattern_idx, self.get_current_pattern_name(), self.pattern_length))
+
+    def switch_measure(self, new_measure):
+        self.measure_changing = True
+        self.current_measure = new_measure
 
     def get_current_pattern_name(self):
         return self._current_pattern["name"]
@@ -56,8 +65,12 @@ class DrumMachine:
                 self.beat += 1
                 if self.beat == self.pattern_length:
                     self.beat = 0
+                    # this is so that if we switch measures while playing, the new measure style will
+                    # only kick in at the top of the beat.
+                    self._playing_pattern = self._current_pattern["measures"][self.current_measure]
+                    self.measure_changing = False
 
-                drums = self._current_pattern["measures"][self.current_measure]
+                drums = self._playing_pattern
                 for drum in drums:
                     drumIdx = self.beat % len(drums[drum])
                     if drums[drum][drumIdx] == "X":

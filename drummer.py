@@ -53,6 +53,12 @@ def main():
                 drum_machine.set_tempo(drum_machine.tempo + 1)
             if event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
                 drum_machine.set_tempo(drum_machine.tempo - 1)
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_a:
+                drum_machine.switch_measure("A")
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_b:
+                drum_machine.switch_measure("B")
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_t:
+                drum_machine.switch_measure("T")
     
     pygame.quit()
 
