@@ -1,22 +1,10 @@
-import sys
-import tty
-import termios
+# Copyright (C) 2023 Timothy Gerla
+# Distributed under the MIT license, see LICENSE.md
+
 import pygame
 
 from display import Display
 from drum_machine import DrumMachine
-
-def getch():
-    fd = sys.stdin.fileno()
-    old_settings = termios.tcgetattr(fd)
-    try:
-        tty.setraw(fd)
-        ch = sys.stdin.buffer.raw.read(1)
-    finally:
-        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-    return ch
-
-
 
 def main():
     current_pattern = 1

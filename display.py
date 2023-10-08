@@ -1,3 +1,6 @@
+# Copyright (C) 2023 Timothy Gerla
+# Distributed under the MIT license, see LICENSE.md
+
 import pygame
 
 class Display:
