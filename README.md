@@ -1,4 +1,4 @@
-# carina-drummer
+# camina-drummer
 A drum loop player in Python.
 
 This will eventually run on CircuitPython on one of these: https://www.adafruit.com/product/802
