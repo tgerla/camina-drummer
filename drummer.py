@@ -3,18 +3,18 @@
 
 import pygame
 
-from display import Display
+from display import PyGameDisplay
 from drum_machine import DrumMachine
 
 def main():
     current_pattern = 1
     running = True
 
-    display = Display()
+    display = PyGameDisplay()
 
     drum_machine = DrumMachine()
     drum_machine.load_patterns()
-    drum_machine.start()
+#    drum_machine.start()
 
     while running:
         running = display.loop(drum_machine)
@@ -32,10 +32,14 @@ def main():
             if event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
                 if drum_machine.current_pattern_idx < len(drum_machine.pattern_loader.patterns["patterns"]):
                     drum_machine.current_pattern_idx += 1
+                else:
+                    drum_machine.current_pattern_idx = 1
                 drum_machine.switch_pattern(drum_machine.current_pattern_idx)
             if event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
                 if drum_machine.current_pattern_idx > 1:
                     drum_machine.current_pattern_idx -= 1
+                else :
+                    drum_machine.current_pattern_idx = len(drum_machine.pattern_loader.patterns["patterns"])
                 drum_machine.switch_pattern(drum_machine.current_pattern_idx)
             if event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
                 drum_machine.set_tempo(drum_machine.tempo + 1)
@@ -46,7 +50,8 @@ def main():
             if event.type == pygame.KEYDOWN and event.key == pygame.K_b:
                 drum_machine.switch_measure("B")
             if event.type == pygame.KEYDOWN and event.key == pygame.K_t:
-                drum_machine.switch_measure("T")
+                if "T" in drum_machine._current_pattern["measures"]:
+                    drum_machine.switch_measure("T")
             if event.type == pygame.KEYDOWN and event.key == pygame.K_c:
                 display.capture_screenshot()
             if event.type == pygame.KEYDOWN and event.key == pygame.K_TAB:
