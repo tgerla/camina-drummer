@@ -2,6 +2,7 @@
 # Distributed under the MIT license, see LICENSE.md
 
 import pygame
+import time
 
 SCREEN_WIDTH = 160
 SCREEN_HEIGHT = 128
@@ -15,15 +16,38 @@ class Display:
     def loop(self, drum_machine):
         raise NotImplementedError
 
+class ST7735RDisplay(Display):
+    try:
+        import board
+        import terminalio
+        import displayio
+        from adafruit_display_text import label
+        from adafruit_st7735r import ST7735R
+    except ImportError:
+        pass
+
+    display = None
+    app_group = None
+
+    def __init__(self, w = SCREEN_WIDTH, h = SCREEN_HEIGHT):
+        super().__init__(w, h)
+        displayio.release_displays()
+
+        spi = board.SPI()
+        display_bus = displayio.FourWire(
+            spi, command=board.D5, chip_select=board.D6, reset=board.D9)
+
+        self.display = ST7735R(display_bus, width=w, height=h, rotation=90, bgr=True)
+        self.app_group = displayio.Group()
+        self.display.show(self.app_group)
+
 class PyGameDisplay(Display):
     BACKGROUND_BITMAP = "assets/background.png"
     SPLASH_BITMAP = None # "assets/splash.jpg"
 
-    def __init__(self):
-        super().__init__()
-        pygame.init()
+    def __init__(self, w = SCREEN_WIDTH, h = SCREEN_HEIGHT):
+        super().__init__(w, h)
         self.screen = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
-        self.clock = pygame.time.Clock()
         self.pattern_font = pygame.font.Font(None, 22)
         self.tempo_font = pygame.font.Font(None, 28)
         self.tempo_font.bold = True
@@ -109,6 +133,3 @@ class PyGameDisplay(Display):
             self._draw_measures(drum_machine)
 
         pygame.display.flip()
-        self.clock.tick(60)
-
-        return self.running
