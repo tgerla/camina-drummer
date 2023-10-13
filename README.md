@@ -28,4 +28,3 @@ The samples are from https://github.com/jstrait/beats and patterns are from http
 TODO:
 
 - swing
-- get rid of the threads and switch to a pure PyGame event loop

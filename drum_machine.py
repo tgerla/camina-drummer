@@ -32,6 +32,7 @@ class DrumMachine:
             self._sounds[sound] = sa.WaveObject.from_wave_file("kits/1/" + SOUNDS[sound])
 
     def start(self):
+        self._time_since_last_beat = 0
         self.state = "playing"
         print("Starting drum machine")
 
@@ -98,8 +99,8 @@ class DrumMachine:
                 self._sounds[drum].play()
 
     def loop(self, delta_time):
-        self._time_since_last_beat += delta_time
         if self.state == "playing":
+            self._time_since_last_beat += delta_time
             if self._time_since_last_beat >= self.interval:
                 self._time_since_last_beat = 0
                 self._play_beat()
