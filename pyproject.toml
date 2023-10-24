@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "camina-drummer"
+version = "0.1.0"
+description = ""
+authors = ["Timothy Gerla <tim@gerla.net>"]
+readme = "README.md"
+packages = [{include = "camina_drummer"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pygame = "^2.5.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

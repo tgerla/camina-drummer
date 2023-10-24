@@ -3,7 +3,7 @@
 
 import pygame
 
-from display import PyGameDisplay
+from display import ST7735RDisplay
 from drum_machine import DrumMachine
 
 def handle_events(drum_machine, display):
@@ -51,10 +51,11 @@ def main():
 
     pygame.init()
     clock = pygame.time.Clock()
-    display = PyGameDisplay()
+    display = ST7735RDisplay()
 
     drum_machine = DrumMachine()
     drum_machine.load_patterns()
+    drum_machine.start()
     
     while running:
         delta_time = clock.tick(60)

@@ -4,8 +4,11 @@
 import pygame
 import time
 
-SCREEN_WIDTH = 160
-SCREEN_HEIGHT = 128
+import ST7789 as ST7789
+from PIL import Image, ImageDraw, ImageFont
+
+SCREEN_WIDTH = 240 
+SCREEN_HEIGHT = 240
 
 # implement an abstract display class that will be used by the main loop
 class Display:
@@ -17,29 +20,93 @@ class Display:
         raise NotImplementedError
 
 class ST7735RDisplay(Display):
-    try:
-        import board
-        import terminalio
-        import displayio
-        from adafruit_display_text import label
-        from adafruit_st7735r import ST7735R
-    except ImportError:
-        pass
-
     display = None
     app_group = None
 
     def __init__(self, w = SCREEN_WIDTH, h = SCREEN_HEIGHT):
         super().__init__(w, h)
-        displayio.release_displays()
 
-        spi = board.SPI()
-        display_bus = displayio.FourWire(
-            spi, command=board.D5, chip_select=board.D6, reset=board.D9)
+        self.display = ST7789.ST7789(
+            height = h,
+            width = w,
+            rotation=0,
+            port=0,
+            cs=0,  # BG_SPI_CS_BACK or BG_SPI_CS_FRONT
+            dc=25,
+            rst=27,
+            backlight=24,               # 18 for back BG slot, 19 for front BG slot.
+            spi_speed_hz=80 * 1000 * 1000,
+            offset_left=0,
+            offset_top=0
+        )
 
-        self.display = ST7735R(display_bus, width=w, height=h, rotation=90, bgr=True)
-        self.app_group = displayio.Group()
-        self.display.show(self.app_group)
+        self.regularFont = ImageFont.truetype("fonts/NotoSans-Regular.ttf", 24) 
+        self.boldFont = ImageFont.truetype("fonts/NotoSans-Bold.ttf", 32)
+        self.smallBoldFont = ImageFont.truetype("fonts/NotoSans-Bold.ttf", 20)
+
+        self.background = Image.open("assets/background.png")
+        self.background.putalpha(Image.new("1", self.background.size, 128))
+        self.display.begin()
+    
+        self.display.display(self.background)
+
+    def loop(self, drum_machine):
+        i = Image.new("RGB", (self.SCREEN_WIDTH, self.SCREEN_HEIGHT), (0, 0, 0))
+        i.paste(self.background)
+        d = ImageDraw.Draw(i)
+
+        self._draw_pattern_name(drum_machine, d)
+        self._draw_tempo_display(drum_machine, d)
+        self._draw_pattern_display(drum_machine, d)
+        self._draw_measures(drum_machine, d)
+        self._draw_beats(drum_machine, d)
+        self.display.display(i)
+
+    def _draw_pattern_name(self, drum_machine, d):
+        d.text((10, 150), drum_machine.get_current_pattern_name(), font=self.regularFont, fill=(255, 255, 255))
+
+    def _draw_tempo_display(self, drum_machine, d):
+        d.text((174, 14), "%d" % drum_machine.tempo, font=self.regularFont, fill=(255, 255, 255))
+
+    def _draw_pattern_display(self, drum_machine, d):
+        d.text((34, 30), "%d" % drum_machine.current_pattern_idx, font=self.boldFont, fill=(0, 0, 0))
+
+    def _draw_measures(self, drum_machine, d):
+        for i, m in enumerate(drum_machine._current_pattern["measures"]):
+            if m == drum_machine.current_measure:
+                color = (255, 255, 255)
+                if drum_machine.measure_changing and drum_machine.beat % 2:
+                    color = (128, 128, 128)
+            else:
+                color = (128, 128, 128)
+
+            d.text((i*22+19, 85), "%s" % m, font=self.smallBoldFont, fill=color)
+
+    def _draw_beats(self, drum_machine, d):
+        for i in range(0, drum_machine.pattern_length):
+            bar_width = 8
+            bar_spacing = 6
+            bar_height = 20
+            bar_y_position = self.SCREEN_HEIGHT - bar_height - 10
+
+            x = 8 + i * (bar_width+bar_spacing)
+            y = bar_y_position
+            x2 = x + bar_width
+            y2 = y + bar_height
+            d.rectangle([x, y, x2, y2], outline=(0, 0, 0), fill=(0, 0, 0))
+
+            if i == drum_machine.beat:
+                d.rectangle([x, y, x2, y2], outline=(0, 0, 0), fill=(0, 255, 255))
+            
+        # draw the time signature display
+        d.text((self.SCREEN_WIDTH/2-18, 40), "%s" % drum_machine.pattern_signature, font=self.regularFont, fill=(225, 225, 225))
+
+        if not drum_machine.beat % 4 and drum_machine.state == "playing":
+            x1 = self.SCREEN_WIDTH/2 - 4
+            y1 = 32 - 4
+            x2 = self.SCREEN_WIDTH/2 + 4
+            y2 = 32 + 4
+            d.ellipse([x1, y1, x2, y2], outline=(255, 255, 0), fill=(255, 255, 0))
 
 class PyGameDisplay(Display):
     BACKGROUND_BITMAP = "assets/background.png"

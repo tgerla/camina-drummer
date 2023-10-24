@@ -1,7 +1,7 @@
 # Copyright (C) 2023 Timothy Gerla
 # Distributed under the MIT license, see LICENSE.md
 
-import simpleaudio as sa
+# import simpleaudio as sa
 import time
 
 from pattern_loader import PatternLoader, SOUNDS
@@ -29,7 +29,7 @@ class DrumMachine:
         self._prior_measure = "A"
 
         for sound in SOUNDS:
-            self._sounds[sound] = sa.WaveObject.from_wave_file("kits/1/" + SOUNDS[sound])
+            self._sounds[sound] = None # sa.WaveObject.from_wave_file("kits/1/" + SOUNDS[sound])
 
     def start(self):
         self._time_since_last_beat = 0
@@ -95,7 +95,7 @@ class DrumMachine:
         drums = self._playing_pattern
         for drum in drums:
             drumIdx = self.beat % len(drums[drum])
-            if drums[drum][drumIdx] == "X":
+            if drums[drum][drumIdx] == "X" and self._sounds[drum] is not None:
                 self._sounds[drum].play()
 
     def loop(self, delta_time):
