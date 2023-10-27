@@ -3,6 +3,7 @@
 
 # import simpleaudio as sa
 import time
+import pygame
 
 from pattern_loader import PatternLoader, SOUNDS
 
@@ -16,7 +17,6 @@ class DrumMachine:
         self.tempo = 120
         self.measure_changing = False
 
-
         self.last_taps = []
 
         self.beat = 0
@@ -29,7 +29,8 @@ class DrumMachine:
         self._prior_measure = "A"
 
         for sound in SOUNDS:
-            self._sounds[sound] = None # sa.WaveObject.from_wave_file("kits/1/" + SOUNDS[sound])
+            self._sounds[sound] = pygame.mixer.Sound("kits/1/" + SOUNDS[sound])
+        pygame.mixer.init()
 
     def start(self):
         self._time_since_last_beat = 0
@@ -47,12 +48,21 @@ class DrumMachine:
 
     def switch_pattern(self, new_pattern_idx):
         self.current_pattern_idx = new_pattern_idx
-        self._current_pattern = self.pattern_loader.get_pattern(self.current_pattern_idx)
+        self._current_pattern = self.pattern_loader.get_pattern(
+            self.current_pattern_idx
+        )
         self.current_measure = "A"
         self._playing_pattern = self._current_pattern["measures"][self.current_measure]
         self.pattern_length = self._current_pattern["length"]
         self.pattern_signature = self._current_pattern.get("time_signature", "n/a")
-        print("Current pattern: [%r] %r (%d measures long)" % (self.current_pattern_idx, self.get_current_pattern_name(), self.pattern_length))
+        print(
+            "Current pattern: [%r] %r (%d measures long)"
+            % (
+                self.current_pattern_idx,
+                self.get_current_pattern_name(),
+                self.pattern_length,
+            )
+        )
 
     def switch_measure(self, new_measure):
         self.measure_changing = True
@@ -74,7 +84,10 @@ class DrumMachine:
             self.last_taps.pop(0)
 
         if len(self.last_taps) >= 2:
-            deltas = [self.last_taps[i] - self.last_taps[i-1] for i in range(1, len(self.last_taps))]
+            deltas = [
+                self.last_taps[i] - self.last_taps[i - 1]
+                for i in range(1, len(self.last_taps))
+            ]
             new_tempo = 60 / (sum(deltas) / len(deltas))
             average_tempo = (self.tempo + new_tempo) / 2
             self.set_tempo(round(average_tempo))
@@ -85,7 +98,9 @@ class DrumMachine:
             self.beat = 0
             # this is so that if we switch measures while playing, the new measure style will
             # only kick in at the top of the beat.
-            self._playing_pattern = self._current_pattern["measures"][self.current_measure]
+            self._playing_pattern = self._current_pattern["measures"][
+                self.current_measure
+            ]
             if self.current_measure == "T":
                 self.current_measure = self._prior_measure
                 self.measure_changing = True

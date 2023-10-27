@@ -3,11 +3,15 @@
 
 import pygame
 
-from display import ST7735RDisplay
+from display import ST7735RDisplay, PyGameDisplay, PLATFORM
 from drum_machine import DrumMachine
-from gpiozero import Button
 
-class Controller:
+try:
+    from gpiozero import Button
+except ImportError:
+    print("gpiozero not found")
+
+class GpioZeroController:
     def __init__(self):
         self.jUp = Button(6)
         self.jDown = Button(19)
@@ -50,24 +54,37 @@ def handle_events(drum_machine, display, controller):
     return True
 
 def main():
-    current_pattern = 1
     running = True
 
     pygame.init()
     clock = pygame.time.Clock()
-    display = ST7735RDisplay()
-    controller = Controller()
+
+    if PLATFORM == "desktop":
+        display = PyGameDisplay()
+        controller = None
+    else:
+        display = ST7735RDisplay()
+        controller = GpioZeroController()
 
     drum_machine = DrumMachine()
     drum_machine.load_patterns()
     drum_machine.start()
     
+    print("%r" % display)
     while running:
         delta_time = clock.tick(60)
+
         drum_machine.loop(delta_time)
         display.loop(drum_machine)
-        running = handle_events(drum_machine, display, controller)
-        
+
+        if controller is not None:
+            running = handle_events(drum_machine, display, controller)
+        else:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+
+
     pygame.quit()
 
 if __name__ == "__main__":
