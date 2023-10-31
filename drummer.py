@@ -11,6 +11,7 @@ try:
 except ImportError:
     print("gpiozero not found")
 
+PLAY_OR_PAUSE_EVENT = pygame.event.custom_type()
 
 class GpioZeroController:
     def __init__(self):
@@ -23,18 +24,26 @@ class GpioZeroController:
         self.key2 = Button(20)
         self.key3 = Button(16)
 
+        self.key3.when_pressed = self._key3_pressed
+
+        self.events = []
+
+    def _key3_pressed(self):
+        pygame.event.post(pygame.event.Event(PLAY_OR_PAUSE_EVENT))  
+
+
 
 def handle_events(drum_machine, display, controller):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             drum_machine.stop()
             return False
+        if event.type == PLAY_OR_PAUSE_EVENT:
+            if drum_machine.state == "playing":
+                drum_machine.stop()
+            else:
+                drum_machine.start()
 
-    if controller.key3.is_pressed:
-        if drum_machine.state == "playing":
-            drum_machine.stop()
-        else:
-            drum_machine.start()
     if controller.jRight.is_pressed:
         if drum_machine.current_pattern_idx < len(
             drum_machine.pattern_loader.patterns["patterns"]
@@ -78,18 +87,20 @@ def main():
 
     print("%r" % display)
     while running:
-        delta_time = clock.tick(60)
+        try:
+            delta_time = clock.tick(60)
 
-        drum_machine.loop(delta_time)
-        display.loop(drum_machine)
+            drum_machine.loop(delta_time)
+            display.loop(drum_machine)
 
-        if controller is not None:
-            running = handle_events(drum_machine, display, controller)
-        else:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    running = False
-
+            if controller is not None:
+                running = handle_events(drum_machine, display, controller)
+            else:
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        running = False
+        except KeyboardInterrupt:
+            running = False
     pygame.quit()
 
 

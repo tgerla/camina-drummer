@@ -28,9 +28,15 @@ class DrumMachine:
         self._playing_pattern = None
         self._prior_measure = "A"
 
-        for sound in SOUNDS:
-            self._sounds[sound] = pygame.mixer.Sound("kits/1/" + SOUNDS[sound])
-        pygame.mixer.init()
+        try:
+            pygame.mixer.init()
+            for sound in SOUNDS:
+                self._sounds[sound] = pygame.mixer.Sound("kits/1/" + SOUNDS[sound])
+
+        except pygame.error:
+            print("Could not initialize sound system")
+            for sound in SOUNDS:
+                self._sounds[sound] = None
 
     def start(self):
         self._time_since_last_beat = 0

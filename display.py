@@ -34,6 +34,7 @@ class Display:
         self.regularFont = ImageFont.truetype("fonts/NotoSans-Regular.ttf", 24)
         self.boldFont = ImageFont.truetype("fonts/NotoSans-Bold.ttf", 32)
         self.smallBoldFont = ImageFont.truetype("fonts/NotoSans-Bold.ttf", 20)
+        self.iconsLargeFont = ImageFont.truetype("fonts/MaterialIcons-Regular.ttf", 40)
 
     def flip(self, image):
         raise NotImplementedError
@@ -46,8 +47,9 @@ class Display:
         self._draw_tempo_display(drum_machine, d)
         self._draw_pattern_display(drum_machine, d)
         self._draw_measures(drum_machine, d)
+        self._draw_buttons(drum_machine, d)
         #        self._draw_beats(drum_machine, d)
-        self.flip(None)
+        self.flip()
 
     def _draw_pattern_name(self, drum_machine, d):
         d.text(
@@ -59,7 +61,7 @@ class Display:
 
     def _draw_tempo_display(self, drum_machine, d):
         d.text(
-            (170, 18),
+            (110, 12),
             "%d" % drum_machine.tempo,
             font=self.regularFont,
             fill=(255, 255, 255),
@@ -71,7 +73,7 @@ class Display:
             tsColor = (128, 128, 128)
 
         d.text(
-            (SCREEN_WIDTH / 2 - 8, 30),
+            (60, 16),
             "%s" % drum_machine.pattern_signature,
             font=self.regularFont,
             fill=tsColor,
@@ -79,11 +81,22 @@ class Display:
 
     def _draw_pattern_display(self, drum_machine, d):
         d.text(
-            (160, 190),
+            (110, 190),
             "%d" % drum_machine.current_pattern_idx,
             font=self.boldFont,
             fill=(255, 255, 255),
         )
+
+    # draw a play symbol or a paused symbol based on the current drum machine state
+    def _draw_buttons(self, drum_machine, d):
+        if drum_machine.state == "playing":
+            d.text((192, 156), '\ue034', font=self.iconsLargeFont, fill=(255, 255, 255))
+        else:
+            d.text((192, 156), '\ue037', font=self.iconsLargeFont, fill=(255, 255, 255))
+
+        d.text((192, 40), '\ue5d8', font=self.iconsLargeFont, fill=(255, 255, 255))
+        d.text((192, 100), '\ue5db', font=self.iconsLargeFont, fill=(255, 255, 255))
+
 
     def _draw_measures(self, drum_machine, d):
         for i, m in enumerate(drum_machine._current_pattern["measures"]):
@@ -140,8 +153,8 @@ class ST7735RDisplay(Display):
         )
         self.display.begin()
 
-    def flip(self, drawingContext):
-        self.display.display(drawingContext)
+    def flip(self):
+        self.display.display(self.buffer)
 
 
 SIM_WIDTH = 595
@@ -157,7 +170,7 @@ class PyGameDisplay(Display):
         pygame.display.set_caption("Camina Drummer")
         self.screen.blit(pygame.image.load("assets/sim-background.png"), (0, 0))
 
-    def flip(self, drawingContext):
+    def flip(self):
         img = pygame.image.frombuffer(
             self.buffer.tobytes(), self.buffer.size, self.buffer.mode
         )
