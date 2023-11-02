@@ -151,10 +151,13 @@ class ST7735RDisplay(Display):
             offset_left=0,
             offset_top=0,
         )
-        self.display.begin()
+        self.display.set_backlight(False)
 
     def flip(self):
         self.display.display(self.buffer)
+
+    def clear(self):
+        self.display.display(Image.new("RGB", (SCREEN_WIDTH, SCREEN_HEIGHT), (0, 0, 0)))
 
 
 SIM_WIDTH = 595

@@ -86,6 +86,7 @@ def main():
     drum_machine.start()
 
     print("%r" % display)
+    display.display.set_backlight(True)
     while running:
         try:
             delta_time = clock.tick(60)
@@ -101,6 +102,8 @@ def main():
                         running = False
         except KeyboardInterrupt:
             running = False
+
+    display.clear()
     pygame.quit()
 
 
